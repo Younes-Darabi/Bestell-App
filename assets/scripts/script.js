@@ -1,6 +1,6 @@
 function showPizzaMenu() {
   let output = document.getElementById("content");
-  output.innerHTML = "";
+  output.innerHTML = `<img class="hauptgerichte" src="assets/imgs/fotos/restaurant.jpg">`;
   for (let i = 0; i < pizzaMenu.length; i++) {
     output.innerHTML += pizzaFramrender(i);
   }
@@ -9,9 +9,8 @@ function showPizzaMenu() {
 function pizzaFramrender(i) {
   return `
         <article class="article">
-            <img class="pizza_img" src="assets/imgs/fotos/${
-              pizzaMenu[i].image
-            }">
+          <div class="pizza_detail">
+            <img class="pizza_img" src="assets/imgs/fotos/${pizzaMenu[i].image}">
             <div class="pizza_info">
               <h2>${pizzaMenu[i].name}</h2>
               <p>${pizzaMenu[i].type} - ${pizzaMenu[i].calories} kl</p>
@@ -19,12 +18,20 @@ function pizzaFramrender(i) {
               <ul><span class="text_bold">Größe:</span>${priceRender(i)}</ul>
               <ul><span class="text_bold">Extras:</span>${extrasRender(i)}</ul>
             </div>
+          </div>
+          <div class="add_pizza">
+            <button onclick="addPizzaToCart(${i})" class="btn_add_pizza"><img src="assets/imgs/icons/plus.png" width="30px" height=30px></button>
+          </div>       
         </article>
     `;
 }
 
+// function addPizzaToCart(i){
+
+// }
+
 function extrasRender(i) {
-  let extras= "";
+  let extras = "";
   for (let j = 0; j < pizzaMenu[i].extras.length; j++) {
     extras += `
             <label><input type="checkbox" >${pizzaMenu[i].extras[j]}</label>
@@ -34,11 +41,11 @@ function extrasRender(i) {
 }
 
 function priceRender(i) {
-  let price= Object.values(pizzaMenu[i].price);
-  let size= Object.keys(pizzaMenu[i].price);
-  let outputSize="";
+  let price = Object.values(pizzaMenu[i].price);
+  let size = Object.keys(pizzaMenu[i].price);
+  let outputSize = "";
   for (let j = 0; j < size.length; j++) {
-    outputSize +=`
+    outputSize += `
            <label><input type="radio" name="size_${i}">${size[j]} (${price[j]}€)</label>
         `;
   }

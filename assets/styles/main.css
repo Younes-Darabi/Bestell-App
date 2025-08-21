@@ -2,25 +2,21 @@ main {
     width: 100%;
     flex: 1;
     display: flex;
-    padding: 3px;
-    margin-bottom: 3px;
 }
 
 .main_left {
     flex: 1;
-    padding-right: 3px;
     display: flex;
     flex-direction: column;
 }
 
 .restaurant_header {
     position: relative;
-    width: 100%;
     height: 200px;
     border-radius: 3px;
     background-image: url("/assets/imgs/fotos/Pizza-Bremen.jpg");
     background-size: cover;
-    background-position: center;
+    margin:3px;
 }
 
 .pizza_bremen_logo {
@@ -46,11 +42,53 @@ main {
     font-size: 14px;
 }
 
+/* ---hauptgerichte_beilage */
+
+.hauptgerichte_beilage{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(219, 218, 218);
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+    gap: 10px;
+}
+
+.hauptgerichte_beilage button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(48, 48, 48);
+    font-size: 16px;
+    font-weight: 600;
+    gap: 5px;
+    transition: all 500ms ease-in-out;
+    padding: 12px 14px;
+}
+
+.hauptgerichte_beilage button:hover {
+    scale: 1.05;
+    background-color: rgb(182, 181, 181);
+}
+
+.hauptgerichte{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 3px;
+}
+
 /* ---article */
+
 .div_article {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px;
 }
 
 .article {
@@ -62,6 +100,12 @@ main {
     border: 1px solid #e2e0e0;
 }
 
+.pizza_detail {
+    width: 100%;
+    height: 150px;
+    display: flex;
+}
+
 .pizza_img {
     width: 150px;
     height: 150px;
@@ -71,7 +115,7 @@ main {
 
 .pizza_info {
     padding-left: 20px;
-    padding-top:10px;
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -80,6 +124,23 @@ main {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.add_pizza {
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.btn_add_pizza {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: scale 250ms ease-in-out;
+}
+
+.btn_add_pizza:hover {
+    scale: 1.1;
 }
 
 .main_right {
@@ -91,10 +152,11 @@ main {
     border: 1px solid #e2e0e0;
     padding: 10px;
     border-radius: 3px;
+    margin: 3px 3px 10px 0;
 }
 
 /* ---Warenkorb */
-.warenkorb{
+.warenkorb {
     display: flex;
     flex-direction: column;
     align-items: center;
