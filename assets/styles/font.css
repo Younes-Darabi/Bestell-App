@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Barrio';
+    src: url('/assets/fonts/Barrio-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'FingerPaint';
+    src: url('/assets/fonts/FingerPaint-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

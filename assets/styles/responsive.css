@@ -1,0 +1,11 @@
+@media(max-width:768px) {
+    .div_body {
+        width: 95%;
+    }
+}
+
+@media(max-width:1200px) {
+    .div_body {
+        width: 87%;
+    }
+}

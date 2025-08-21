@@ -1,4 +1,104 @@
-main{
+main {
     width: 100%;
     flex: 1;
+    display: flex;
+    padding: 3px;
+    margin-bottom: 3px;
+}
+
+.main_left {
+    flex: 1;
+    padding-right: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant_header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 3px;
+    background-image: url("/assets/imgs/fotos/Pizza-Bremen.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.pizza_bremen_logo {
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+    width: 100px;
+    border: 1px solid #ecebeb;
+    position: absolute;
+    left: 45%;
+    top: 150px;
+}
+
+.restaurant_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.bewertung {
+    color: #FF8000;
+    font-size: 14px;
+}
+
+/* ---article */
+.div_article {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.article {
+    width: 100%;
+    height: 150px;
+    border-radius: 3px;
+    display: flex;
+    background-color: rgba(243, 243, 243, 0.219);
+    border: 1px solid #e2e0e0;
+}
+
+.pizza_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px 0 0 5px;
+}
+
+.pizza_info {
+    padding-left: 20px;
+    padding-top:10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pizza_info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    background-color: rgba(243, 243, 243, 0.219);
+    border: 1px solid #e2e0e0;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+/* ---Warenkorb */
+.warenkorb{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: sticky;
+    top: 5px;
 }
