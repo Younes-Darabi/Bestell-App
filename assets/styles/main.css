@@ -164,3 +164,9 @@ main {
     position: sticky;
     top: 5px;
 }
+
+/* ---ShoppingCart */
+
+.ShoppingCart{
+    width: 90%;
+}

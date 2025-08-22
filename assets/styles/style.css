@@ -37,7 +37,23 @@ h2 {
     margin: 5px 0;
 }
 
-p{
+h3 {
+    font-size: 16px;
+    color: rgb(77, 76, 76);
+}
+
+.display_space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.red {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+
+p {
     margin: 2px 0;
 }
 
@@ -47,10 +63,11 @@ p{
     background-color: #e2e0e0;
 }
 
-.text_bold{
+.text_bold {
     font-weight: 600;
 }
 
-input:hover,label:hover{
+input:hover,
+label:hover {
     cursor: pointer;
 }
