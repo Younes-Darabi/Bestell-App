@@ -1,6 +1,9 @@
 let cart = {
   "mainCourses": [],
-  "sideDishes": []
+  "sideDishes": [],
+  "deliveryMethod": 10,
+  "totalAmount": 0,
+  "TotalPaymentPrice": 0,
 };
 
 let extrasMenu = [

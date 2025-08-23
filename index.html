@@ -21,10 +21,10 @@
     <script src="assets/scripts/mainCourses.js" defer></script>
     <script src="assets/scripts/sideDishes.js" defer></script>
     <script src="assets/scripts/script.js" defer></script>
-        <script src="assets/scripts/ShoppingCart.js" defer></script>
+    <script src="assets/scripts/ShoppingCart.js" defer></script>
 </head>
 
-<body onload="showPizzaMenu(),showShoppingCart()">
+<body onload="showPizzaMenu()">
 
     <div class="div_body">
         <header>
@@ -59,7 +59,19 @@
                 <div class="warenkorb">
                     <h2>Warenkorb</h2>
                     <div class="line"></div>
+                    
                     <div class="ShoppingCart" id="ShoppingCart"></div>
+
+                    <div id="delivery_method" class="deliveryMethod display_none">
+                        <h3>Bitte wählen Sie eine Versandart:</h3>
+                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio"
+                                value="10" checked>Lieferung (10€)</label>
+                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio"
+                                value="0">Abholen</label>
+                    </div>
+
+                    <div class="ShoppingCart" id="total_payment_price"></div>
+
                 </div>
             </div>
         </main>
