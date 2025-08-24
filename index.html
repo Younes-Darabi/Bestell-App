@@ -10,33 +10,45 @@
     <link rel="icon" href="assets/imgs/icons/favicon.ico">
     <title>Bestell App</title>
 
-    <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/styles/font.css">
     <link rel="stylesheet" href="assets/styles/header.css">
     <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
     <link rel="stylesheet" href="assets/styles/responsive.css">
+    <link rel="stylesheet" href="assets/styles/checkout.css">    
 
     <script src="assets/scripts/db.js" defer></script>
     <script src="assets/scripts/mainCourses.js" defer></script>
     <script src="assets/scripts/sideDishes.js" defer></script>
     <script src="assets/scripts/script.js" defer></script>
     <script src="assets/scripts/ShoppingCart.js" defer></script>
+    <script src="assets/scripts/checkout.js" defer></script>
 </head>
 
 <body onload="showPizzaMenu()">
 
     <div class="div_body">
-        <header>
-            <img src="assets/imgs/icons/Logo.png" height="50px">
-            <div class="menu_header">
-                <span class="line_menu"></span>
-                <span class="line_menu"></span>
-                <span class="line_menu"></span>
+        <header class="index_header">
+            <div class="logo_menu">
+                <img src="assets/imgs/icons/Logo.png" height="50px">
+                <div onclick="showMiniMenu()" class="menu_header">
+                    <span class="menu_icon"></span>
+                    <span class="menu_icon"></span>
+                    <span class="menu_icon"></span>
+                </div>
             </div>
+
+            <nav class="mini_menu display_none" id="mini_menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="html/checkout.html">Kasse</a></li>
+                </ul>
+            </nav>
+
         </header>
 
-        <main>
+        <main class="index_main">
             <section class="main_left">
                 <div class="restaurant_header">
                     <img class="pizza_bremen_logo" src="assets/imgs/icons/fav-icon.png">
@@ -59,13 +71,13 @@
                 <div class="warenkorb">
                     <h2>Warenkorb</h2>
                     <div class="line"></div>
-                    
+
                     <div class="ShoppingCart" id="ShoppingCart"></div>
 
                     <div id="delivery_method" class="deliveryMethod display_none">
                         <h3>Bitte wählen Sie eine Versandart:</h3>
-                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio"
-                                value="10" checked>Lieferung (10€)</label>
+                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio" value="10"
+                                checked>Lieferung (10€)</label>
                         <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio"
                                 value="0">Abholen</label>
                     </div>
@@ -76,7 +88,58 @@
             </div>
         </main>
 
-        <footer></footer>
+        <footer class="index_footer">
+
+            <nav>
+                <ul class="footer_menu" id="menu">
+                    <li><a href="mailto:info@testmail.de">Kontakt</a></li>
+                    <li><a href="assets/pdf/AGB.pdf" target="_blank">AGB</a></li>
+                    <li><a href="assets/pdf/Datenschutzerklärung.pdf" target="_blank">Datenschutzerklärung</a></li>
+                    <li><a href="assets/pdf/Impressum.pdf" target="_blank">Impressum</a></li>
+                </ul>
+
+                <ul class="social_media">
+                    <li>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                            <img src="assets/imgs/icons/social-media/facebook.png" alt="Facebook">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                            <img src="assets/imgs/icons/social-media/instagram.png" alt="Instagram">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                            <img src="assets/imgs/icons/social-media/linkedin.png" alt="LinkedIn">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/123456789" target="_blank" aria-label="WhatsApp">
+                            <img src="assets/imgs/icons/social-media/social.png" alt="WhatsApp">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/username" target="_blank" aria-label="Telegram">
+                            <img src="assets/imgs/icons/social-media/telegram.png" alt="Telegram">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                            <img src="assets/imgs/icons/social-media/twitter.png" alt="Twitter">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                            <img src="assets/imgs/icons/social-media/youtube.png" alt="YouTube">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <p class="copyright_notice">© 2025 <strong>Bestell App</strong> – Dein smarter Bestellhelfer</p>
+
+        </footer>
     </div>
 
 </body>

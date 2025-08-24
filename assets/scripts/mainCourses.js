@@ -1,5 +1,6 @@
 
 function showPizzaMenu() {
+  showShoppingCart();
   let output = document.getElementById("content");
   output.innerHTML = `<img class="hauptgerichte" src="assets/imgs/fotos/restaurant.jpg">`;
   for (let i = 0; i < pizzaMenu.length; i++) {
@@ -11,7 +12,7 @@ function pizzaMenuRender(i) {
   return `
         <article class="article">
           <div class="pizza_detail">
-            <img class="pizza_img" src="assets/imgs/fotos/${pizzaMenu[i].image}">
+            <img class="pizza_img" src="assets/imgs/fotos/pizza/${pizzaMenu[i].image}">
             <div class="pizza_info">
               <h2>${pizzaMenu[i].name}</h2>
               <p>${pizzaMenu[i].type} - ${pizzaMenu[i].calories} kl</p>
@@ -62,7 +63,7 @@ function addPizzaToCart(i) {
 }
 
 function CheckingCartInventoryPizzaMenu(name, size) {
-  let index = cart.mainCourses.findIndex(item => 
+  let index = cart.mainCourses.findIndex(item =>
     item.name === name && item.size === size
   );
   return index;

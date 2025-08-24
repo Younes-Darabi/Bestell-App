@@ -11,7 +11,7 @@ function BeilageMenuRender(i) {
   return `
         <article class="article">
           <div class="pizza_detail">
-            <img class="pizza_img" src="assets/imgs/fotos/${extrasMenu[i].image}">
+            <img class="pizza_img" src="assets/imgs/fotos/extras/${extrasMenu[i].image}">
             <div class="pizza_info">
               <h2>${extrasMenu[i].name}</h2>
               <p>${extrasMenu[i].type} - ${extrasMenu[i].calories} kl</p>

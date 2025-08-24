@@ -1,0 +1,23 @@
+.order {
+    width: 300px;
+    height: 600px;
+    border: 1px solid #d4d4d4;
+    margin: 20px;
+    border-radius: 3px;
+}
+
+.address {
+    width: 300px;
+    height: 600px;
+    border: 1px solid #d4d4d4;
+    margin: 20px;
+    border-radius: 3px;
+}
+
+.payment {
+    width: 300px;
+    height: 600px;
+    border: 1px solid #d4d4d4;
+    margin: 20px;
+    border-radius: 3px;
+}

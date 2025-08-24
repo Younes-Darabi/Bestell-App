@@ -1,4 +1,4 @@
-let cart = {
+let defaultCart = {
   "mainCourses": [],
   "sideDishes": [],
   "deliveryMethod": 10,

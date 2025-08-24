@@ -1,7 +1,13 @@
 let totalAmount = 0;
 let TotalPaymentPrice = 0;
+let cart = JSON.parse(localStorage.getItem("cart"));
+if (!cart) {
+    cart = defaultCart;
+}
 
 function showShoppingCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+
     totalAmount = 0;
     TotalPaymentPrice = 0;
     let showCart = document.getElementById("ShoppingCart");
@@ -17,10 +23,10 @@ function showShoppingCart() {
         TotalPaymentPrice += cart.sideDishes[i].amount * cart.sideDishes[i].price
     }
     // Not displaying the total amount and shipping method if the shopping cart is empty
-    if (totalAmount>=1){
+    if (totalAmount >= 1) {
         document.getElementById('delivery_method').classList.remove('display_none');
         document.getElementById('total_payment_price').classList.remove('display_none');
-    }else{
+    } else {
         document.getElementById('delivery_method').classList.add('display_none');
         document.getElementById('total_payment_price').classList.add('display_none');
     }
@@ -37,12 +43,15 @@ function totalPaymentPriceRender() {
         <p class="red">${totalAmount}</p>
         <p class="red">${TotalPaymentPrice.toFixed(2)}€</p>
     </div>
-    <div class="zur_kasse_btn">
-        <button onclick="addPizzaToCart()"><img src="assets/imgs/icons/kasse.png" width="30px" height=30px>Zur Kasse</button>
-    </div>       
+
+    <div class="zur_kasse_btn"> 
+        <a onclick="addPizzaToCart()" href="html/checkout.html">
+            <img src="assets/imgs/icons/kasse.png" width="30" height="30" alt="Zur Kasse"> Zur Kasse
+        </a>
+    </div>     
     `
-    cart.totalAmount=totalAmount;
-    cart.TotalPaymentPrice=TotalPaymentPrice;
+    cart.totalAmount = totalAmount;
+    cart.TotalPaymentPrice = TotalPaymentPrice;
 }
 
 function deliveryMethod() {
