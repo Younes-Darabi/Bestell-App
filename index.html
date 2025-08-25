@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
     <link rel="stylesheet" href="assets/styles/responsive.css">
-    <link rel="stylesheet" href="assets/styles/checkout.css">    
+    <link rel="stylesheet" href="assets/styles/checkout.css">
 
     <script src="assets/scripts/db.js" defer></script>
     <script src="assets/scripts/mainCourses.js" defer></script>
@@ -71,6 +71,25 @@
                 <div class="warenkorb">
                     <h2>Warenkorb</h2>
                     <div class="line"></div>
+                    <div class="ShoppingCart" id="ShoppingCart"></div>
+                    <div id="delivery_method" class="deliveryMethod display_none">
+                        <h3>Bitte wählen Sie eine Versandart:</h3>
+                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio" value="10"
+                                checked>Lieferung (10€)</label>
+                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio"
+                                value="0">Abholen</label>
+                    </div>
+                    <div class="ShoppingCart" id="total_payment_price"></div>
+                </div>
+            </div>
+
+
+
+
+            <!-- <div class="Middle_shopping_cart"> -->
+                <!-- <div class="Middle_shopping_cart"> -->
+                    <!-- <h2>Warenkorb</h2>
+                    <div class="line"></div>
 
                     <div class="ShoppingCart" id="ShoppingCart"></div>
 
@@ -82,10 +101,17 @@
                                 value="0">Abholen</label>
                     </div>
 
-                    <div class="ShoppingCart" id="total_payment_price"></div>
+                    <div class="ShoppingCart" id="total_payment_price"></div> -->
 
-                </div>
-            </div>
+                <!-- </div> -->
+
+                <!-- <button class="middle_btn_cart">Warenkorb</button> -->
+
+            <!-- </div> -->
+
+
+
+
         </main>
 
         <footer class="index_footer">

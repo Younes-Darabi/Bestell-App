@@ -1,9 +1,11 @@
+let defaultdbKundenDaten = [];
+
 let defaultCart = {
   "mainCourses": [],
   "sideDishes": [],
-  "deliveryMethod": 10,
+  "deliveryMethod": 0,
   "totalAmount": 0,
-  "TotalPaymentPrice": 0,
+  "totalPaymentPrice": 0,
 };
 
 let extrasMenu = [
