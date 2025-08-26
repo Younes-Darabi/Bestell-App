@@ -24,25 +24,69 @@
     }
 }
 
+@media(min-width:991px) {
+    .middle_none {
+        display: none;
+    }
+}
+
 @media(max-width:990px) {
     .main_right {
         display: none;
     }
 
-    /* .middle_btn_cart{
-        display: flex;
+    .btn_middle_cart {
+        position: fixed;
+        bottom: 0;
+        justify-content: center;
+        align-items: center;
         background-color: #ff8000;
-        height: 20px;
-        width: 100%;
-    } */
-
-    .Middle_shopping_cart {
-        /* position: fixed; */
-        /* bottom: 0; */
-        /* width: 95%; */
-        /* height: 100vh; */
-        /* background-color: white; */
+        color: white;
+        height: 50px;
+        width: 95%;
+        border: 1px solid #c96502;
+        font-size: 16px;
     }
+
+    .middle_shopping_cart {
+        position: fixed;
+        bottom: 50px;
+        width: 95%;
+        height: 100vh;
+        background-color: white;
+    }
+}
+
+@media(max-width:720px) {
+    .ul_radiobox {
+        padding-top: 10px;
+        flex-direction: column;
+    }
+
+    .ul_radiobox ul{
+        padding-top: 5px;
+        flex-direction: column;
+    }
+
+    .ingredients {
+        flex-direction: column;
+    }
+
+    .ingredients li {
+        padding-right: 0;
+        list-style: inside;
+    }
+
+    .article {
+        height: 290px;
+        /* flex-direction: column; */
+    }
+
+    /* .add_pizza {
+        justify-content: center;
+        padding: 20px 0;
+    }  */
+
 }
 
 /* ---footer */

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- <base href="/Bestell-App/"> -->
     <base href="/">
 
     <link rel="icon" href="assets/imgs/icons/favicon.ico">
@@ -16,22 +17,20 @@
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
     <link rel="stylesheet" href="assets/styles/responsive.css">
-    <link rel="stylesheet" href="assets/styles/checkout.css">
 
     <script src="assets/scripts/db.js" defer></script>
     <script src="assets/scripts/mainCourses.js" defer></script>
     <script src="assets/scripts/sideDishes.js" defer></script>
     <script src="assets/scripts/script.js" defer></script>
     <script src="assets/scripts/ShoppingCart.js" defer></script>
-    <script src="assets/scripts/checkout.js" defer></script>
 </head>
-
-<body onload="showPizzaMenu()">
+<body onload="mainCoursesRender()">
 
     <div class="div_body">
+
         <header class="index_header">
             <div class="logo_menu">
-                <img src="assets/imgs/icons/Logo.png" height="50px">
+                <img src="assets/imgs/icons/Logo.png" alt="Bestell App Logo" aria-label="Bestell App Logo" height="50px">
                 <div onclick="showMiniMenu()" class="menu_header">
                     <span class="menu_icon"></span>
                     <span class="menu_icon"></span>
@@ -51,22 +50,23 @@
         <main class="index_main">
             <section class="main_left">
                 <div class="restaurant_header">
-                    <img class="pizza_bremen_logo" src="assets/imgs/icons/fav-icon.png">
+                    <img class="pizza_bremen_logo" src="assets/imgs/icons/fav-icon.png"  alt="Pizza Bremen Logo" aria-label="Pizza Bremen Logo">
                 </div>
                 <div class="restaurant_title">
                     <h1>Pizza Bremen</h1>
                     <span class="bewertung">Bewertung (4.8 von 5 Sternen)</span>
                 </div>
                 <div class="hauptgerichte_beilage">
-                    <button onclick="showPizzaMenu()"><img src="assets/imgs/icons/Hauptgerichte.png"
-                            width="30px">Hauptgerichte</button>
+                    <button onclick="mainCoursesRender()"><img src="assets/imgs/icons/Hauptgerichte.png"
+                            width="30px"   alt="Hauptgerichte icon" aria-label="Hauptgerichte icon">Hauptgerichte</button>
                     <button onclick="showBeilageMenu()"><img src="assets/imgs/icons/Beilage.png"
-                            width="30px">Beilage</button>
+                            width="30px"   alt="Beilage icon" aria-label="Beilage icon">Beilage</button>
                 </div>
                 <div>
                     <div class="div_article" id="content"></div>
                 </div>
             </section>
+
             <div class="main_right">
                 <div class="warenkorb">
                     <h2>Warenkorb</h2>
@@ -86,29 +86,22 @@
 
 
 
-            <!-- <div class="Middle_shopping_cart"> -->
-                <!-- <div class="Middle_shopping_cart"> -->
-                    <!-- <h2>Warenkorb</h2>
-                    <div class="line"></div>
+            <div id="middle_shopping_cart" class="middle_shopping_cart display_none">
 
-                    <div class="ShoppingCart" id="ShoppingCart"></div>
-
-                    <div id="delivery_method" class="deliveryMethod display_none">
+                <div class="warenkorb">
+                    <div class="ShoppingCart" id="middle_ShoppingCart"></div>
+                    <div id="middle_delivery_method" class="deliveryMethod display_none">
                         <h3>Bitte wählen Sie eine Versandart:</h3>
-                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio" value="10"
+                        <label><input onclick="middleDeliveryMethod()" name="middle_deliveryMethod" type="radio" value="10"
                                 checked>Lieferung (10€)</label>
-                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio"
+                        <label><input onclick="middleDeliveryMethod()" name="middle_deliveryMethod" type="radio"
                                 value="0">Abholen</label>
                     </div>
+                    <div class="ShoppingCart" id="middle_total_payment_price"></div>
+                </div>
 
-                    <div class="ShoppingCart" id="total_payment_price"></div> -->
-
-                <!-- </div> -->
-
-                <!-- <button class="middle_btn_cart">Warenkorb</button> -->
-
-            <!-- </div> -->
-
+            </div>
+            <button onclick="btnMiddleShoppingCart()" class="btn_middle_cart middle_none">Warenkorb</button>
 
 
 

@@ -14,7 +14,7 @@
     position: relative;
     height: 200px;
     border-radius: 3px;
-    background-image: url("/assets/imgs/fotos/Pizza-Bremen.jpg");
+    background-image: url("../imgs/fotos/Pizza-Bremen.jpg");
     background-size: cover;
     margin:3px;
 }
@@ -38,7 +38,7 @@
 }
 
 .bewertung {
-    color: #FF8000;
+    color: #5A5353;
     font-size: 14px;
 }
 
@@ -202,4 +202,20 @@
 .zur_kasse_btn a:hover{
     color: white;
     background-color: #FF8000;
+}
+
+.ul_radiobox{
+    display: flex;
+}
+
+.ul_radiobox ul{
+    display: flex;
+}
+
+.ingredients{
+    display: flex;
+}
+
+.ingredients li{
+    padding-right: 10px;
 }

@@ -1,4 +1,4 @@
-let defaultdbKundenDaten = [];
+let defaultdbCustomersData = [];
 
 let defaultCart = {
   "mainCourses": [],
@@ -66,7 +66,6 @@ let extrasMenu = [
     "image": "chili-soße.jpg",
   },
 ];
-
 
 let pizzaMenu = [
   {

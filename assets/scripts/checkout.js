@@ -1,63 +1,47 @@
-let dbKundenDaten = JSON.parse(localStorage.getItem("dbKundenDaten"));
-if (!dbKundenDaten) {
-    dbKundenDaten = defaultdbKundenDaten;
+let ok = true;
+let customersData = JSON.parse(localStorage.getItem("customers_data"));
+if (!customersData) {
+    customersData = defaultdbCustomersData;
 }
-
-orderReder();
 
 function orderReder() {
     let order = document.getElementById("my_order");
-    order.innerHTML = null;
-
-    for (let i = 0; i < cart.mainCourses.length; i++) {
-        order.innerHTML += `
-            <h3>${cart.mainCourses[i].name} (${cart.mainCourses[i].size})</h3>
-            <p>${cart.mainCourses[i].amount} x ${cart.mainCourses[i].price} € = ${((cart.mainCourses[i].amount) * (cart.mainCourses[i].price)).toFixed(2)} €</p>
-            <div class="line"></div>
-        `;
-    }
-    for (let i = 0; i < cart.sideDishes.length; i++) {
-        order.innerHTML += `
-            <h3>${cart.sideDishes[i].name} (${cart.sideDishes[i].size})</h3>
-            <p>${cart.sideDishes[i].amount} x ${cart.sideDishes[i].price} € = ${(cart.sideDishes[i].amount) * (cart.sideDishes[i].price)} €</p>
-            <div class="line"></div>
-        `;
-    }
+    order.innerHTML = "";
+    order.innerHTML += showOrderInCheckout('mainCourses', order);
+    order.innerHTML += showOrderInCheckout('sideDishes', order);
     order.innerHTML += `
             <p>Versandkosten: ${cart.deliveryMethod} €</p>
             <div class="line"></div>
             <h3 class="red">Gesamtanzahl: ${cart.totalAmount} </h3>
             <h3 class="red">Gesamtbetrag: ${(cart.totalPaymentPrice).toFixed(2)} €</h3>
         `;
-
 }
 
-function kundenDatenSpeichern() {
+function showOrderInCheckout(array, order) {
+    for (let i = 0; i < cart[array].length; i++) {
+        order.innerHTML += `
+        <h3>${cart[array][i].name} (${cart[array][i].size})</h3>
+        <p>${cart[array][i].amount} x ${cart[array][i].price} € = ${((cart[array][i].amount) * (cart[array][i].price)).toFixed(2)} €</p>
+        <div class="line"></div>
+        `;
+    }
+    return order.innerHTML;
+}
+
+function saveCustomerData() {
+    ok = true
     let name = document.getElementById('name');
     let address = document.getElementById('address');
     let phone = document.getElementById('phone');
     let email = document.getElementById('email');
     let payment = document.getElementById('payment');
-
-    let ok = true;
-
-    checkInput(name);
-    checkInput(address);
-    checkInput(phone);
-    checkInput(email);
-    checkInput(payment);
-
-    function checkInput(element) {
-        if (!element.value) {
-            element.style.borderColor = 'red';
-            ok = false;
-        } else {
-            element.style.borderColor = '#d4d4d4';
-        }
-    }
-
+    checkInputCustomerData(name);
+    checkInputCustomerData(address);
+    checkInputCustomerData(phone);
+    checkInputCustomerData(email);
+    checkInputCustomerData(payment);
     if (ok) {
-        dbKundenDaten.push({
+        customersData.push({
             "name": name.value,
             "address": address.value,
             "phone": phone.value,
@@ -65,22 +49,33 @@ function kundenDatenSpeichern() {
             "payment": payment.value,
             "order": cart,
         })
-        localStorage.setItem("dbKundenDaten", JSON.stringify(dbKundenDaten));
+        localStorage.setItem("customers_data", JSON.stringify(customersData));
         document.getElementById('section_order').classList.add("opacity");
-        document.getElementById('section_kunden_daten').classList.add("opacity");
+        document.getElementById('section_customers_data').classList.add("opacity");
         document.getElementById('section_successful_message').classList.remove("opacity");
         paymentSuccessfulMessage();
-        cart = {
-            "mainCourses": [],
-            "sideDishes": [],
-            "deliveryMethod": 0,
-            "totalAmount": 0,
-            "totalPaymentPrice": 0,
-        };
-        localStorage.setItem("cart", JSON.stringify(cart));
+        emptyShoppingCart();
     }
+}
 
+function emptyShoppingCart() {
+    cart = {
+        "mainCourses": [],
+        "sideDishes": [],
+        "deliveryMethod": 0,
+        "totalAmount": 0,
+        "totalPaymentPrice": 0,
+    };
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
 
+function checkInputCustomerData(element) {
+    if (!element.value) {
+        element.style.borderColor = 'red';
+        ok = false;
+    } else {
+        element.style.borderColor = '#d4d4d4';
+    }
 }
 
 function paymentSuccessfulMessage() {
@@ -94,13 +89,13 @@ function paymentSuccessfulMessage() {
 function btnNext() {
     if (cart.totalAmount > 0) {
         document.getElementById('section_order').classList.add("opacity");
-        document.getElementById('section_kunden_daten').classList.remove("opacity");
-    }else{
+        document.getElementById('section_customers_data').classList.remove("opacity");
+    } else {
         window.location.href = "index.html";
     }
 }
 
 function btnBack() {
     document.getElementById('section_order').classList.remove("opacity");
-    document.getElementById('section_kunden_daten').classList.add("opacity");
+    document.getElementById('section_customers_data').classList.add("opacity");
 }

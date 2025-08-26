@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- <base href="/Bestell-App/"> -->
     <base href="/">
 
     <link rel="icon" href="assets/imgs/icons/favicon.ico">
@@ -27,12 +28,12 @@
 
 </head>
 
-<body>
+<body onload="orderReder()">
 
     <div class="div_body">
         <header class="index_header">
             <div class="logo_menu">
-                <img src="assets/imgs/icons/Logo.png" height="50px">
+                <img src="assets/imgs/icons/Logo.png" alt="Bestell App Logo" aria-label="Bestell App Logo" height="50px">
                 <div onclick="showMiniMenu()" class="menu_header">
                     <span class="menu_icon"></span>
                     <span class="menu_icon"></span>
@@ -62,8 +63,8 @@
                 </div>
             </section>
 
-            <section class="opacity" id="section_kunden_daten">
-                <div class="order" id="kunden_daten">
+            <section class="opacity" id="section_customers_data">
+                <div class="order" id="customers_data">
                     <form>
                         <label for="name">Name:</label><br>
                         <input type="text" id="name" name="name" required><br><br>
@@ -87,7 +88,7 @@
                     </form>
                 </div>
                 <div class="mybtton">
-                    <a onclick="kundenDatenSpeichern()" type="submit">Daten speichern & bezahle</a>
+                    <a onclick="saveCustomerData()" type="submit">Daten speichern & bezahle</a>
                 </div>
                 <div class="mybtton">
                     <a onclick="btnBack()">Zurück</a>

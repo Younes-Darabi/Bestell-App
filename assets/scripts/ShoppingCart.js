@@ -1,6 +1,7 @@
 let totalAmount = 0;
 let totalPaymentPrice = 0;
 let cart = JSON.parse(localStorage.getItem("cart"));
+
 if (!cart) {
     cart = defaultCart;
 }
@@ -8,49 +9,65 @@ if (!cart) {
 function showShoppingCart() {
     defaultCart = cart;
     localStorage.setItem("cart", JSON.stringify(cart));
-
     totalAmount = 0;
     totalPaymentPrice = 0;
     let showCart = document.getElementById("ShoppingCart");
+    let showMiddleCart = document.getElementById("middle_ShoppingCart");
     showCart.innerHTML = "";
-    for (let i = 0; i < cart.mainCourses.length; i++) {
-        showCart.innerHTML += showInCart('mainCourses', i);
-        totalAmount += cart.mainCourses[i].amount;
-        totalPaymentPrice += cart.mainCourses[i].amount * cart.mainCourses[i].price
-    }
-    for (let i = 0; i < cart.sideDishes.length; i++) {
-        showCart.innerHTML += showInCart('sideDishes', i);
-        totalAmount += cart.sideDishes[i].amount;
-        totalPaymentPrice += cart.sideDishes[i].amount * cart.sideDishes[i].price
+    showMiddleCart.innerHTML = "";
+    dbShopingCartRender('mainCourses');
+    dbShopingCartRender('sideDishes');
+    function dbShopingCartRender(array) {
+        for (let i = 0; i < cart[array].length; i++) {
+            showCart.innerHTML += showInCart(array, i);
+            totalAmount += cart[array][i].amount;
+            totalPaymentPrice += cart[array][i].amount * cart[array][i].price
+        }
     }
     // Not displaying the total amount and shipping method if the shopping cart is empty
-    if (totalAmount >= 1) {
-        document.getElementById('delivery_method').classList.remove('display_none');
-        document.getElementById('total_payment_price').classList.remove('display_none');
-    } else {
-        document.getElementById('delivery_method').classList.add('display_none');
-        document.getElementById('total_payment_price').classList.add('display_none');
-    }
+    addRemoveDeliveryPaymentCart();
     // Setting the selected radio-box to the user's choice and not the default
-    if (cart.deliveryMethod == 10) {
-        document.querySelector(`input[name="deliveryMethod"][value="10"]`).checked = true;
-    } else{
-        document.querySelector(`input[name="deliveryMethod"][value="0"]`).checked = true;
-    }
+    matchingDeliveryWithDb();
     // Show empty shopping cart icon if the shopping cart is empty
     if (totalAmount == 0) {
         showCart.innerHTML = `
             <div class="display_center">
-                <img src="assets/imgs/icons/empty-cart.png" width="50px">
-            </div>
-        `
+                <img src="assets/imgs/icons/empty-cart.png" alt="empty-cart icon" width="50px">
+            </div>`
     }
     totalPaymentPriceRender();
-    console.table(cart);
+    showMiddleCart.innerHTML = showCart.innerHTML;
+}
+
+// Setting the selected radio-box to the user's choice and not the default
+function matchingDeliveryWithDb() {
+    if (cart.deliveryMethod == 10) {
+        document.querySelector(`input[name="deliveryMethod"][value="10"]`).checked = true;
+        document.querySelector(`input[name="middle_deliveryMethod"][value="10"]`).checked = true;
+    } else {
+        document.querySelector(`input[name="deliveryMethod"][value="0"]`).checked = true;
+        document.querySelector(`input[name="middle_deliveryMethod"][value="0"]`).checked = true;
+    }
+}
+
+// Not displaying the total amount and shipping method if the shopping cart is empty
+function addRemoveDeliveryPaymentCart() {
+    if (totalAmount >= 1) {
+        document.getElementById('delivery_method').classList.remove('display_none');
+        document.getElementById('total_payment_price').classList.remove('display_none');
+        document.getElementById('middle_delivery_method').classList.remove('display_none');
+        document.getElementById('middle_total_payment_price').classList.remove('display_none');
+    } else {
+        document.getElementById('delivery_method').classList.add('display_none');
+        document.getElementById('total_payment_price').classList.add('display_none');
+        document.getElementById('middle_delivery_method').classList.add('display_none');
+        document.getElementById('middle_total_payment_price').classList.add('display_none');
+    }
 }
 
 function totalPaymentPriceRender() {
     let showTotalPaymentPrice = document.getElementById("total_payment_price");
+    let showMiddleTotalPaymentPrice = document.getElementById("middle_total_payment_price");
     totalPaymentPrice += parseFloat(cart.deliveryMethod);
     showTotalPaymentPrice.innerHTML = `
     <div class="red_line"></div>
@@ -58,13 +75,13 @@ function totalPaymentPriceRender() {
         <p class="red">${totalAmount}</p>
         <p class="red">${totalPaymentPrice.toFixed(2)}€</p>
     </div>
-
     <div class="zur_kasse_btn"> 
         <a href="html/checkout.html">
-            <img src="assets/imgs/icons/kasse.png" width="30" height="30" alt="Zur Kasse"> Zur Kasse
+            <img src="assets/imgs/icons/kasse.png"  alt="kasse icon" width="30" height="30" alt="Zur Kasse"> Zur Kasse
         </a>
     </div>     
     `
+    showMiddleTotalPaymentPrice.innerHTML = showTotalPaymentPrice.innerHTML;
     cart.totalAmount = totalAmount;
     cart.totalPaymentPrice = totalPaymentPrice;
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -72,6 +89,12 @@ function totalPaymentPriceRender() {
 
 function deliveryMethod() {
     let selected = document.querySelector(`input[name="deliveryMethod"]:checked`);
+    cart.deliveryMethod = selected.value;
+    showShoppingCart();
+}
+
+function middleDeliveryMethod() {
+    let selected = document.querySelector(`input[name="middle_deliveryMethod"]:checked`);
     cart.deliveryMethod = selected.value;
     showShoppingCart();
 }
@@ -85,7 +108,7 @@ function showInCart(array, i) {
         <div class="display_space"> 
             <h3>${cart[array][i].name}</h3>
             <div>
-                <button onclick="removeFromCart('${array}',${i})" class="btn_add_pizza"><img src="assets/imgs/icons/delete.png" width="20px" height=20px></button>
+                <button onclick="removeFromCart('${array}',${i})" class="btn_add_pizza"><img src="assets/imgs/icons/delete.png" alt="delete icon" width="20px" height=20px></button>
             </div> 
         </div>
         <p><span class="text_bold">Größe:</span> ${cart[array][i].size}</p>
@@ -93,8 +116,8 @@ function showInCart(array, i) {
         <div class="display_space">
             <p><span class="text_bold">Mange: </span>${cart[array][i].amount}</p>
             <div>
-                <button onclick="SubtractOneAmount('${array}',${i})" class="btn_add_pizza"><img src="assets/imgs/icons/remove.png" width="20px" height=20px></button>
-                <button onclick="AddOneToAmount('${array}',${i})" class="btn_add_pizza"><img src="assets/imgs/icons/add.png" width="20px" height=20px></button>
+                <button onclick="SubtractOneAmount('${array}',${i})" class="btn_add_pizza"><img src="assets/imgs/icons/remove.png" alt="remove icon" width="20px" height=20px></button>
+                <button onclick="AddOneToAmount('${array}',${i})" class="btn_add_pizza"><img src="assets/imgs/icons/add.png" alt="add icon" width="20px" height=20px></button>
             </div>
             <p class="red">${totalPrice}€</p>
         </div>
@@ -119,4 +142,9 @@ function AddOneToAmount(array, i) {
 function removeFromCart(array, i) {
     cart[array].splice(i, 1);
     showShoppingCart()
+}
+
+// ---Middle Shopping Cart
+function btnMiddleShoppingCart() {
+    document.getElementById('middle_shopping_cart').classList.toggle('display_none')
 }
