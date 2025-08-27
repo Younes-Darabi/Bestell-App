@@ -7,8 +7,8 @@ if (!customersData) {
 function orderReder() {
     let order = document.getElementById("my_order");
     order.innerHTML = "";
-    order.innerHTML += showOrderInCheckout('mainCourses', order);
-    order.innerHTML += showOrderInCheckout('sideDishes', order);
+    order.innerHTML += showOrderInCheckout('mainCourses');
+    order.innerHTML += showOrderInCheckout('sideDishes');
     order.innerHTML += `
             <p>Versandkosten: ${cart.deliveryMethod} €</p>
             <div class="line"></div>
@@ -17,15 +17,16 @@ function orderReder() {
         `;
 }
 
-function showOrderInCheckout(array, order) {
+function showOrderInCheckout(array) {
+    let output="";
     for (let i = 0; i < cart[array].length; i++) {
-        order.innerHTML += `
+        output += `
         <h3>${cart[array][i].name} (${cart[array][i].size})</h3>
         <p>${cart[array][i].amount} x ${cart[array][i].price} € = ${((cart[array][i].amount) * (cart[array][i].price)).toFixed(2)} €</p>
         <div class="line"></div>
         `;
     }
-    return order.innerHTML;
+    return output;
 }
 
 function saveCustomerData() {

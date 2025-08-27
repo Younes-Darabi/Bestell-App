@@ -1,18 +1,18 @@
-@media(max-width:768px) {
+@media(max-width:1418px) {
+    .div_body {
+        width: 90%;
+    }
+}
+
+@media(max-width:1263px) {
     .div_body {
         width: 95%;
     }
 }
 
-@media(max-width:1380px) {
+@media(max-width:1195px) {
     .div_body {
-        width: 87%;
-    }
-}
-
-@media(max-width:1260px) {
-    .div_body {
-        width: 95%;
+        width: 98%;
     }
 }
 
@@ -43,17 +43,22 @@
         background-color: #ff8000;
         color: white;
         height: 50px;
-        width: 95%;
+        width: 98%;
         border: 1px solid #c96502;
         font-size: 16px;
+        cursor: pointer;
     }
 
     .middle_shopping_cart {
         position: fixed;
         bottom: 50px;
-        width: 95%;
+        width: 98%;
         height: 100vh;
         background-color: white;
+    }
+
+    .div_body {
+        margin-bottom: 50px;
     }
 }
 
@@ -63,7 +68,7 @@
         flex-direction: column;
     }
 
-    .ul_radiobox ul{
+    .ul_radiobox ul {
         padding-top: 5px;
         flex-direction: column;
     }
@@ -79,14 +84,14 @@
 
     .article {
         height: 290px;
-        /* flex-direction: column; */
     }
+}
 
-    /* .add_pizza {
-        justify-content: center;
-        padding: 20px 0;
-    }  */
-
+@media(max-width:560px) {
+    .restaurant_title {
+        flex-direction: column;
+        margin-top: 40px;
+    }
 }
 
 /* ---footer */
@@ -101,7 +106,40 @@
         align-items: center;
     }
 
+    .add_pizza {
+        padding-right: 20px;
+    }
+
     .index_footer {
-        height: 350px;
+        height: 300px;
+    }
+}
+
+@media(max-width:330px) {
+    .div_body {
+        width: 100%;
+    }
+
+    .hauptgerichte_beilage {
+        padding-left: 0px;
+        gap: 5px;
+    }
+
+    .middle_shopping_cart {
+        width: 100%;
+    }
+
+    .btn_middle_cart {
+        width: 100%;
+    }
+}
+
+/* --Checkout */
+
+@media(max-width:920px) {
+    .checkout_main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
