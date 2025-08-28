@@ -1,33 +1,25 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- <base href="/Bestell-App/"> -->
     <base href="/">
-
     <link rel="icon" href="assets/imgs/icons/favicon.ico">
     <title>Bestell App</title>
-
     <link rel="stylesheet" href="assets/styles/font.css">
     <link rel="stylesheet" href="assets/styles/header.css">
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
     <link rel="stylesheet" href="assets/styles/responsive.css">
-
+    <script src="assets/scripts/templates.js" defer></script>
     <script src="assets/scripts/db.js" defer></script>
-    <script src="assets/scripts/mainCourses.js" defer></script>
-    <script src="assets/scripts/sideDishes.js" defer></script>
     <script src="assets/scripts/script.js" defer></script>
     <script src="assets/scripts/ShoppingCart.js" defer></script>
 </head>
 <body onload="mainCoursesRender()">
-
     <div class="div_body">
-
         <header class="index_header">
             <div class="logo_menu">
                 <img src="assets/imgs/icons/Logo.png" alt="Bestell App Logo" aria-label="Bestell App Logo" height="50px">
@@ -37,16 +29,13 @@
                     <span class="menu_icon"></span>
                 </div>
             </div>
-
             <nav class="mini_menu display_none" id="mini_menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="html/checkout.html">Kasse</a></li>
                 </ul>
             </nav>
-
         </header>
-
         <main class="index_main">
             <section class="main_left">
                 <div class="restaurant_header">
@@ -66,7 +55,6 @@
                     <div class="div_article" id="content"></div>
                 </div>
             </section>
-
             <div class="main_right">
                 <div class="warenkorb">
                     <h2>Warenkorb</h2>
@@ -74,41 +62,30 @@
                     <div class="ShoppingCart" id="ShoppingCart"></div>
                     <div id="delivery_method" class="deliveryMethod display_none">
                         <h3>Bitte wählen Sie eine Versandart:</h3>
-                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio" value="10"
+                        <label><input onclick="deliveryMethod('deliveryMethod')" name="deliveryMethod" type="radio" value="10"
                                 checked>Lieferung (10€)</label>
-                        <label><input onclick="deliveryMethod()" name="deliveryMethod" type="radio"
+                        <label><input onclick="deliveryMethod('deliveryMethod')" name="deliveryMethod" type="radio"
                                 value="0">Abholen</label>
                     </div>
                     <div class="ShoppingCart" id="total_payment_price"></div>
                 </div>
             </div>
-
-
-
-
             <div id="middle_shopping_cart" class="middle_shopping_cart display_none">
-
                 <div class="warenkorb">
                     <div class="ShoppingCart" id="middle_ShoppingCart"></div>
                     <div id="middle_delivery_method" class="deliveryMethod display_none">
                         <h3>Bitte wählen Sie eine Versandart:</h3>
-                        <label><input onclick="middleDeliveryMethod()" name="middle_deliveryMethod" type="radio" value="10"
+                        <label><input onclick="deliveryMethod('middle_deliveryMethod')" name="middle_deliveryMethod" type="radio" value="10"
                                 checked>Lieferung (10€)</label>
-                        <label><input onclick="middleDeliveryMethod()" name="middle_deliveryMethod" type="radio"
+                        <label><input onclick="deliveryMethod('middle_deliveryMethod')" name="middle_deliveryMethod" type="radio"
                                 value="0">Abholen</label>
                     </div>
                     <div class="ShoppingCart" id="middle_total_payment_price"></div>
                 </div>
-
             </div>
             <button onclick="btnMiddleShoppingCart()" class="btn_middle_cart middle_none">Warenkorb</button>
-
-
-
         </main>
-
         <footer class="index_footer">
-
             <nav>
                 <ul class="footer_menu" id="menu">
                     <li><a href="mailto:info@testmail.de">Kontakt</a></li>
@@ -116,7 +93,6 @@
                     <li><a href="html/AGB-Impressum-Datenschutz.html" target="_blank">Datenschutzerklärung</a></li>
                     <li><a href="html/AGB-Impressum-Datenschutz.html" target="_blank">Impressum</a></li>
                 </ul>
-
                 <ul class="social_media">
                     <li>
                         <a href="https://facebook.com" target="_blank" aria-label="Facebook">
@@ -155,12 +131,8 @@
                     </li>
                 </ul>
             </nav>
-
             <p class="copyright_notice">© 2025 <strong>Bestell App</strong> – Dein smarter Bestellhelfer</p>
-
         </footer>
     </div>
-
 </body>
-
 </html>

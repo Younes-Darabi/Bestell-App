@@ -17,11 +17,6 @@ body {
     min-height: 100vh;
 }
 
-/* body {
-    scrollbar-width: thin;
-    scrollbar-color: #2e2e2e #424242;
-} */
-
 body::-webkit-scrollbar {
     width: 12px;
 }

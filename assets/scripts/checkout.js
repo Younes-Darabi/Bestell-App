@@ -18,7 +18,7 @@ function orderReder() {
 }
 
 function showOrderInCheckout(array) {
-    let output="";
+    let output = "";
     for (let i = 0; i < cart[array].length; i++) {
         output += `
         <h3>${cart[array][i].name} (${cart[array][i].size})</h3>
@@ -40,6 +40,7 @@ function saveCustomerData() {
     checkInputCustomerData(address);
     checkInputCustomerData(phone);
     checkInputCustomerData(email);
+    isValidEmail(email);
     checkInputCustomerData(payment);
     if (ok) {
         customersData.push({
@@ -56,6 +57,15 @@ function saveCustomerData() {
         document.getElementById('section_successful_message').classList.remove("opacity");
         paymentSuccessfulMessage();
         emptyShoppingCart();
+    }
+}
+
+function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    ok = re.test(email.value);
+    if (ok) {
+    }else{
+        email.style.borderColor = 'red';
     }
 }
 

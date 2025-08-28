@@ -162,6 +162,7 @@
 }
 
 /* ---Warenkorb */
+
 .warenkorb {
     display: flex;
     flex-direction: column;
@@ -175,6 +176,9 @@
 
 .ShoppingCart{
     width: 90%;
+    max-height: 60vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .deliveryMethod{
